@@ -1,0 +1,9 @@
+.tabs {
+  color: var(--mantine-color-gray-6);
+  transition: all 0.2s ease-in-out;
+  width: 50%;
+}
+
+.tabs[data-active] {
+  color: var(--mantine-color-brand-7);
+}
