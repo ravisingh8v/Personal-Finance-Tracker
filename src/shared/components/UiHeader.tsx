@@ -12,7 +12,7 @@ import { useNavigate } from "react-router";
 import { useAppSelector } from "../../store/store";
 
 export interface IUiHeader {
-  title: React.ReactNode;
+  title?: React.ReactNode;
   order?: TitleOrder;
   withDivider?: boolean;
   history?: string;

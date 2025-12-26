@@ -16,9 +16,12 @@ import { useGetBooksQuery } from "../../shared/utility/service/book.service";
 import BookItem from "./components/BookItem";
 
 const Book = () => {
-  const { data: books = [], isLoading } = useGetBooksQuery(undefined, {
-    refetchOnMountOrArgChange: true,
-  });
+  const { data: { data: books = [] } = {}, isLoading } = useGetBooksQuery(
+    undefined,
+    {
+      refetchOnMountOrArgChange: true,
+    }
+  );
 
   return (
     <Stack

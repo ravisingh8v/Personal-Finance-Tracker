@@ -2,20 +2,28 @@ import { createApi } from "@reduxjs/toolkit/query/react";
 
 import type { AxiosResponse } from "axios";
 import { axiosBaseQuery } from "../auth/axiosBaseQuery";
-import { API_ROUTES, API_URL } from "../constants/constants";
-import type { ICategoryRes } from "../model/model";
+import { API_ROUTES, API_URL, QueryTags } from "../constants/constants";
+import type { ICategory } from "../model/model";
+// import type { ICategoryRes } from "../model/model";
 
 const sharedService = createApi({
   reducerPath: "sharedService",
   baseQuery: axiosBaseQuery(API_URL),
-  tagTypes: [],
+  tagTypes: [QueryTags.CATEGORY],
   endpoints: (builder) => ({
-    getCategories: builder.query<AxiosResponse<ICategoryRes>, void>({
+    getCategories: builder.query<AxiosResponse<ICategory[]>, void>({
       query: () => ({
-        url: `${API_ROUTES.CATEGORIES}`,
+        url: `${API_ROUTES.CATEGORY}`,
         method: "GET",
       }),
+      providesTags: [QueryTags.CATEGORY],
     }),
+    // getCategories: builder.query<AxiosResponse<ICategoryRes>, void>({
+    //   query: () => ({
+    //     url: `${API_ROUTES.CATEGORIES}`,
+    //     method: "GET",
+    //   }),
+    // }),
 
     // addToCart: builder.mutation<any, IAddToCartReqBody>({
     //   query: (data) => ({

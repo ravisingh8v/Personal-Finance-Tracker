@@ -132,10 +132,12 @@ export const formatAmount = (
         notation: "compact",
         compactDisplay: "short",
         maximumFractionDigits: maxFrac,
+        useGrouping: true,
       }
     : {
         minimumFractionDigits: minFrac,
         maximumFractionDigits: maxFrac,
+        useGrouping: true,
         // 2025 standard: explicitly set rounding for financial accuracy
         // roundingMode: "halfExpand",
       };

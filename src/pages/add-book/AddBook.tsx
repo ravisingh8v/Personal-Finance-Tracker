@@ -30,7 +30,7 @@ const AddBook = () => {
   const { id = "" } = useParams();
   const navigate = useNavigate();
 
-  const { data: bookDetails, isLoading: isBookDetailsLoading } =
+  const { data: { data: bookDetails } = {}, isLoading: isBookDetailsLoading } =
     useGetBookByIdQuery(+id, {
       skip: id === "",
     });
@@ -69,7 +69,7 @@ const AddBook = () => {
           }
         } else {
           const res = await createBook(requestBody).unwrap();
-          if (res && res?.id) {
+          if (res.data && res?.data?.id) {
             navigate("/");
           }
         }
@@ -89,8 +89,8 @@ const AddBook = () => {
   useEffect(() => {
     if (bookDetails) {
       form.setValues({
-        title: bookDetails.title,
-        description: bookDetails.description || "",
+        title: bookDetails?.title,
+        description: bookDetails?.description || "",
       });
 
       form.resetDirty();

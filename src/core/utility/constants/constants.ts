@@ -2,11 +2,15 @@ import {
   Button,
   createTheme,
   Notification,
+  NumberInput,
+  Select,
   Textarea,
   TextInput,
   type CSSVariablesResolver,
 } from "@mantine/core";
+import { DateTimePicker } from "@mantine/dates";
 import { IconBook2, IconChartHistogram } from "@tabler/icons-react";
+import { MENU_LINKS } from "../../../shared/utility/constants/constants";
 
 export const theme = createTheme({
   primaryColor: "brand",
@@ -32,14 +36,30 @@ export const theme = createTheme({
     TextInput: TextInput.extend({
       styles: (theme) => ({
         input: {
-          // borderColor: theme.colors.gray[2],
-          // backgroundColor: "var(--mantine-input-bg-color)",
+          // borderColor: "transparent",
+          // backgroundColor: "transparent",
           paddingInline: "15px",
-          paddingBlock: "25px",
+          paddingBlock: "20px",
           fontSize: "16px",
         },
         label: {
           fontSize: "16px",
+          color: "var(--mantine-color-dark-text)",
+        },
+      }),
+    }),
+    NumberInput: NumberInput.extend({
+      styles: (theme) => ({
+        input: {
+          // borderColor: "transparent",
+          // backgroundColor: "transparent",
+          paddingInline: "15px",
+          paddingBlock: "20px",
+          fontSize: "16px",
+        },
+        label: {
+          fontSize: "16px",
+          color: "var(--mantine-color-dark-text)",
         },
       }),
     }),
@@ -47,8 +67,43 @@ export const theme = createTheme({
       styles: (theme) => ({
         input: {
           fontSize: "16px",
+          paddingInline: "15px",
+          paddingBlock: "10px",
         },
         label: {
+          fontSize: "16px",
+          color: "var(--mantine-color-dark-text)",
+        },
+      }),
+    }),
+    Select: Select.extend({
+      styles: (theme) => ({
+        input: {
+          fontSize: "16px",
+          paddingInline: "15px",
+          paddingBlock: "20px",
+        },
+        label: {
+          fontSize: "16px",
+          color: "var(--mantine-color-dark-text)",
+        },
+      }),
+    }),
+    DateTimePicker: DateTimePicker.extend({
+      styles: (theme) => ({
+        input: {
+          fontSize: "16px",
+          paddingInline: "15px",
+          paddingBlock: "7px",
+        },
+        label: {
+          fontSize: "16px",
+          color: "var(--mantine-color-dark-text)",
+        },
+        timeInput: {
+          fontSize: "16px",
+        },
+        timeWrapper: {
           fontSize: "16px",
         },
       }),
@@ -111,7 +166,7 @@ export const bottomBarItems = [
   },
   {
     id: 1,
-    path: "/",
+    path: MENU_LINKS.REPORTS,
     icon: IconChartHistogram,
   },
   // {

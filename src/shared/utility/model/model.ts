@@ -12,6 +12,15 @@ export interface IBookReq {
   description?: string | null;
 }
 
+export interface IExpenseReq {
+  amount: number;
+  date: string;
+  categoryId: number;
+  paymentTypeId: number;
+  transactionTypeId: number;
+  notes: string | null;
+}
+
 export interface IReq<P, B> {
   params: P;
   reqBody: B;
@@ -22,6 +31,15 @@ export interface IOption {
   name: string;
 }
 
+export interface IExpenseCategory extends IOption {
+  colorCode: string;
+}
+
+export interface ICategory extends IOption {
+  isDefault: boolean;
+  colorCode: string;
+}
+
 export interface ISummary {
   totalIncome: number;
   totalExpense: number;
@@ -29,20 +47,24 @@ export interface ISummary {
   totalEntries: number;
 }
 
-export interface IExpense {
+export interface IExpenseItem {
   id: number;
   amount: number;
   date: string;
   notes: string | null;
-  category: IOption;
+  category: IExpenseCategory;
   paymentType: IOption;
   transactionType: IOption;
+}
+
+export interface IExpense extends IExpenseItem {
+  book: IOption;
 }
 
 export interface IExpenseRes {
   book: IOption;
   summary: ISummary;
-  expenses: IExpense[];
+  expenses: IExpenseItem[];
 }
 
 // No Use
@@ -93,16 +115,16 @@ export interface IOrderItems {
   variant: string | null;
 }
 
-export interface ICategoryRes {
-  categories: ICategory[];
-}
+// export interface ICategoryRes {
+//   categories: ICategory[];
+// }
 
-export interface ICategory {
-  id: number;
-  image: string;
-  name: string;
-  description: string | null;
-}
+// export interface ICategory {
+//   id: number;
+//   image: string;
+//   name: string;
+//   description: string | null;
+// }
 
 export interface IDropDown {
   label: string;

@@ -13,3 +13,10 @@ export const enum TRANSACTION_NATURE {
   INCOME = 1,
   EXPENSE = 2,
 }
+
+export const enum PAYMENT_NATURE {
+  CASH = 1,
+  BANK_TRANSFER = 2,
+  CARD = 3,
+  UPI = 4,
+}

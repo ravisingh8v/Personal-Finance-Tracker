@@ -11,17 +11,23 @@ const animations = {
   exit: { opacity: 0, x: 20 },
 };
 const Master = () => {
-  const { bgColor } = useAppSelector((state) => state.appSlice);
+  const { bgColor, showBottomBar } = useAppSelector((state) => state.appSlice);
   const theme = useMantineTheme();
   const outlet = useOutlet();
   return (
-    <Stack h={"100%"} px="md" style={{ overflow: "hidden" }} bg={bgColor}>
+    <Stack
+      h={"100%"}
+      px="md"
+      id="master"
+      style={{ overflow: "hidden" }}
+      bg={bgColor}
+    >
       <Header />
       {/* Sub Header with back button  */}
       <UiHeader />
 
       <Box style={{ flexGrow: 1, overflow: "auto" }}>{outlet}</Box>
-      <BottomBar />
+      {showBottomBar && <BottomBar />}
     </Stack>
   );
 };

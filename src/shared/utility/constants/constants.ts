@@ -7,6 +7,7 @@ export const API_URL = import.meta.env.VITE_API_URL;
 export const QueryTags = {
   Book: "Book",
   Expense: "Expense",
+  CATEGORY: "Category",
 
   // No Use
   OrderDetails: "OrderDetails",
@@ -17,6 +18,7 @@ export const QueryTags = {
 export const API_ROUTES = {
   BOOK: "book",
   EXPENSE: "expense",
+  CATEGORY: "category",
 
   LOGIN: "restaurants/login",
   SIGN_IP: "users/sign-up",
@@ -51,6 +53,9 @@ export const MENU_LINKS = {
   ADD_BOOK: "/add-book",
   EDIT_BOOK: "/edit-book",
   EXPENSES: "/expenses",
+  REPORTS: "/reports",
+  EXPENSE_ADD: "/add",
+  EXPENSE_EDIT: "/edit",
 
   // SEARCH: '/search',
   ACCOUNT: "/account",
@@ -87,10 +92,12 @@ export const LOCAL_STORAGE_KEYS = {
 
 export const APP_SLICE_INITIAL_VALUES: {
   showHeader: boolean;
+  showBottomBar: boolean;
   bgColor: MantineColor;
   subHeader: IUiHeader;
 } = {
   showHeader: true,
+  showBottomBar: true,
   bgColor: "#fff",
   subHeader: {
     title: "N/A",
@@ -102,6 +109,13 @@ export const APP_SLICE_INITIAL_VALUES: {
     withShadow: false,
   },
 };
+
+export const PaymentModes = [
+  { label: "Cash", value: "1" },
+  { label: "Bank Transfer", value: "2" },
+  { label: "Credit Card", value: "3" },
+  { label: "UPI / Digital Wallet", value: "4" },
+];
 
 // export const QueryTags = {
 //   OrderDetails: "OrderDetails",

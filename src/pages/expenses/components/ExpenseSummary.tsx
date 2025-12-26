@@ -1,10 +1,11 @@
 import { Card, Group, Stack, Text, ThemeIcon } from "@mantine/core";
 import { IconTrendingDown, IconTrendingUp } from "@tabler/icons-react";
+import { formatAmount } from "../../../shared/utility/helper/helper";
 import type { ISummary } from "../../../shared/utility/model/model";
 
 const ExpenseSummary = ({ summary }: { summary: ISummary }) => {
   return (
-    <Card withBorder bg={"white"} radius={"md"}>
+    <Card withBorder bg={"white"} radius={"md"} style={{ flexShrink: 0 }}>
       <Card.Section px={"md"} py={"sm"} withBorder>
         <Group justify="space-between" color="brand">
           <Text c={"brand"} fw={500}>
@@ -12,7 +13,7 @@ const ExpenseSummary = ({ summary }: { summary: ISummary }) => {
           </Text>
           <Text c="brand" fw={500}>
             {summary?.netBalance > 0 ? "+" : ""}
-            {summary?.netBalance ?? 0}
+            {formatAmount(summary?.netBalance ?? 0)}
           </Text>
         </Group>
       </Card.Section>
@@ -34,7 +35,7 @@ const ExpenseSummary = ({ summary }: { summary: ISummary }) => {
               style={{ flexGrow: 1 }}
               truncate
             >
-              +{summary?.totalIncome ?? 0}
+              +{formatAmount(summary?.totalIncome ?? 0)}
             </Text>
           </Group>
           <Group justify="space-between">
@@ -53,7 +54,7 @@ const ExpenseSummary = ({ summary }: { summary: ISummary }) => {
               style={{ flexGrow: 1 }}
               truncate
             >
-              -{summary?.totalExpense ?? 0}
+              -{formatAmount(summary?.totalExpense ?? 0)}
             </Text>
           </Group>
         </Stack>

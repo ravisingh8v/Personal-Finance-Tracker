@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
 import { bookService } from "../shared/utility/service/book.service";
 import { expenseService } from "../shared/utility/service/expense.service";
+import sharedService from "../shared/utility/service/shared.service";
 import appSlice from "../shared/utility/slice/app.slice";
 
 export const store = configureStore({
@@ -10,13 +11,13 @@ export const store = configureStore({
     [bookService.reducerPath]: bookService.reducer,
     [expenseService.reducerPath]: expenseService.reducer,
     // homeSlice: homeSclie,
-    // [sharedService.reducerPath]: sharedService.reducer,
+    [sharedService.reducerPath]: sharedService.reducer,
     // [home.reducerPath]: home.reducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware().concat(
       // auth.middleware,
-      // sharedService.middleware
+      sharedService.middleware,
       bookService.middleware,
       expenseService.middleware
     );

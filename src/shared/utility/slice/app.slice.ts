@@ -9,6 +9,9 @@ const appSlice = createSlice({
     setShowHeader(state, action) {
       state.showHeader = action.payload;
     },
+    setShowBottomBar(state, action) {
+      state.showBottomBar = action.payload;
+    },
     setGlobalBgColor(state, action) {
       state.bgColor = action.payload;
     },
@@ -22,5 +25,9 @@ const appSlice = createSlice({
 });
 
 export default appSlice.reducer;
-export const { setShowHeader, setGlobalBgColor, setSubHeader } =
-  appSlice.actions;
+export const {
+  setShowHeader,
+  setGlobalBgColor,
+  setSubHeader,
+  setShowBottomBar,
+} = appSlice.actions;
