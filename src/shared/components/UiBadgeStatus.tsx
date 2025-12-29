@@ -1,6 +1,10 @@
-import { Badge, BadgeProps, BadgeStylesNames, BadgeVariant, MantineSize } from '@mantine/core';
-import { OrderStatus } from '../utility/enum/enums';
-import { ComponentProps } from 'react';
+import {
+  Badge,
+  type BadgeProps,
+  type BadgeVariant,
+  type MantineSize,
+} from "@mantine/core";
+import { OrderStatus } from "../utility/enum/enums";
 
 interface IUiBadgeStatusProps {
   statusId: number;
@@ -16,12 +20,23 @@ const UiBadgeStatus = ({
   status,
   size,
   rightSection,
-  variant = 'light',
+  variant = "light",
   props = {},
 }: IUiBadgeStatusProps) => {
-  if (statusId === OrderStatus.CANCELLED || statusId === OrderStatus.REJECTED || statusId === OrderStatus.FAILED) {
+  if (
+    statusId === OrderStatus.CANCELLED ||
+    statusId === OrderStatus.REJECTED ||
+    statusId === OrderStatus.FAILED
+  ) {
     return (
-      <Badge autoContrast color="red" variant={variant} size={size} rightSection={rightSection} {...props}>
+      <Badge
+        autoContrast
+        color="red"
+        variant={variant}
+        size={size}
+        rightSection={rightSection}
+        {...props}
+      >
         {status}
       </Badge>
     );
@@ -31,19 +46,37 @@ const UiBadgeStatus = ({
     statusId === OrderStatus.OUT_FOR_DELIVERY
   ) {
     return (
-      <Badge autoContrast color="yellow" variant={variant} size={size} rightSection={rightSection}>
+      <Badge
+        autoContrast
+        color="yellow"
+        variant={variant}
+        size={size}
+        rightSection={rightSection}
+      >
         {status}
       </Badge>
     );
   } else if (statusId === OrderStatus.DELIVERED) {
     return (
-      <Badge autoContrast color="green" variant={variant} size={size} rightSection={rightSection}>
+      <Badge
+        autoContrast
+        color="green"
+        variant={variant}
+        size={size}
+        rightSection={rightSection}
+      >
         {status}
       </Badge>
     );
   } else {
     return (
-      <Badge autoContrast color="blue" variant={variant} size={size} rightSection={rightSection}>
+      <Badge
+        autoContrast
+        color="blue"
+        variant={variant}
+        size={size}
+        rightSection={rightSection}
+      >
         {status}
       </Badge>
     );

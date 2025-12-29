@@ -1,18 +1,18 @@
-import { Box, Stack, useMantineTheme } from "@mantine/core";
+import { Box, Stack } from "@mantine/core";
 import { useOutlet } from "react-router";
 import UiHeader from "../../shared/components/UiHeader";
 import { useAppSelector } from "../../store/store";
 import BottomBar from "./BottomBar";
 import Header from "./Header";
 
-const animations = {
-  initial: { opacity: 0, x: -20 },
-  animate: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: 20 },
-};
+// const animations = {
+//   initial: { opacity: 0, x: -20 },
+//   animate: { opacity: 1, x: 0 },
+//   exit: { opacity: 0, x: 20 },
+// };
 const Master = () => {
   const { bgColor, showBottomBar } = useAppSelector((state) => state.appSlice);
-  const theme = useMantineTheme();
+  // const theme = useMantineTheme();
   const outlet = useOutlet();
   return (
     <Stack

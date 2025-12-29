@@ -34,7 +34,7 @@ export const theme = createTheme({
   focusRing: "never",
   components: {
     TextInput: TextInput.extend({
-      styles: (theme) => ({
+      styles: () => ({
         input: {
           // borderColor: "transparent",
           // backgroundColor: "transparent",
@@ -49,7 +49,7 @@ export const theme = createTheme({
       }),
     }),
     NumberInput: NumberInput.extend({
-      styles: (theme) => ({
+      styles: () => ({
         input: {
           // borderColor: "transparent",
           // backgroundColor: "transparent",
@@ -64,7 +64,7 @@ export const theme = createTheme({
       }),
     }),
     Textarea: Textarea.extend({
-      styles: (theme) => ({
+      styles: () => ({
         input: {
           fontSize: "16px",
           paddingInline: "15px",
@@ -77,7 +77,7 @@ export const theme = createTheme({
       }),
     }),
     Select: Select.extend({
-      styles: (theme) => ({
+      styles: () => ({
         input: {
           fontSize: "16px",
           paddingInline: "15px",
@@ -90,7 +90,7 @@ export const theme = createTheme({
       }),
     }),
     DateTimePicker: DateTimePicker.extend({
-      styles: (theme) => ({
+      styles: () => ({
         input: {
           fontSize: "16px",
           paddingInline: "15px",

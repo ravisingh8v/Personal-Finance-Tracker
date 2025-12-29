@@ -7,12 +7,11 @@ import {
   Skeleton,
   Stack,
   Text,
-  useMantineTheme,
 } from "@mantine/core";
 import { Fragment, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate, useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import {
   APP_SLICE_INITIAL_VALUES,
   MENU_LINKS,
@@ -37,8 +36,8 @@ const Expenses = () => {
   const dispatch = useDispatch();
 
   const { id = "" } = useParams();
-  const navigate = useNavigate();
-  const theme = useMantineTheme();
+  // const navigate = useNavigate();
+  // const theme = useMantineTheme();
   const masterContainer = document.getElementById("master");
   const {
     data: { data: { book, expenses, summary } = {} as IExpenseRes } = {},

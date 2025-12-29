@@ -23,7 +23,7 @@ const BookItem = ({ book }: { book: IBook }) => {
 
   async function handleDelete() {
     try {
-      const res = await deleteBook(book.id).unwrap();
+      await deleteBook(book.id).unwrap();
     } catch (err) {
       console.error("Failed to delete book:", err);
     }

@@ -6,7 +6,7 @@ import {
   IconTrash,
 } from "@tabler/icons-react";
 import { getAddressString } from "../utility/helper/helper";
-import { IAddress } from "../utility/model/model";
+import { type IAddress } from "../utility/model/model";
 
 interface IUiAddressesProps {
   onChange?: () => void;

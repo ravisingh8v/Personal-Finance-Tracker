@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Badge, Menu, UnstyledButton, Group, FloatingPosition } from '@mantine/core';
-import { IconChevronDown } from '@tabler/icons-react';
-import { IStatus } from '../utility/model/model';
-import UiBadgeStatus from './UiBadgeStatus';
+import { type FloatingPosition, Menu, UnstyledButton } from "@mantine/core";
+import { IconChevronDown } from "@tabler/icons-react";
+import React from "react";
+import { type IStatus } from "../utility/model/model";
+import UiBadgeStatus from "./UiBadgeStatus";
 
 interface UiBadgeWithDropdownProps {
   currentStatus: IStatus;
@@ -18,7 +18,12 @@ const UiBadgeWithDropdown: React.FC<UiBadgeWithDropdownProps> = ({
   dropdownPos,
 }) => {
   return (
-    <Menu withinPortal shadow="sm" position={dropdownPos ?? 'bottom-end'} disabled={!statusOptions.length}>
+    <Menu
+      withinPortal
+      shadow="sm"
+      position={dropdownPos ?? "bottom-end"}
+      disabled={!statusOptions.length}
+    >
       <Menu.Target>
         <UnstyledButton>
           <UiBadgeStatus
@@ -32,7 +37,11 @@ const UiBadgeWithDropdown: React.FC<UiBadgeWithDropdownProps> = ({
 
       <Menu.Dropdown>
         {statusOptions.map((status) => (
-          <Menu.Item key={status.id} onClick={() => onChange(status)} disabled={status.id === currentStatus.id}>
+          <Menu.Item
+            key={status.id}
+            onClick={() => onChange(status)}
+            disabled={status.id === currentStatus.id}
+          >
             {status.status}
           </Menu.Item>
         ))}
