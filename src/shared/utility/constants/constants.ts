@@ -103,7 +103,7 @@ export const APP_SLICE_INITIAL_VALUES: {
     title: "N/A",
     order: 2,
     withDivider: false,
-    history: undefined,
+    history: "/",
     withBackButton: true,
     rightSection: null,
     withShadow: false,

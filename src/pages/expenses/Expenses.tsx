@@ -40,7 +40,6 @@ const Expenses = () => {
   const navigate = useNavigate();
   const theme = useMantineTheme();
   const masterContainer = document.getElementById("master");
-
   const {
     data: { data: { book, expenses, summary } = {} as IExpenseRes } = {},
     isLoading,
@@ -80,7 +79,7 @@ const Expenses = () => {
             {isLoading && <Skeleton height={120} />}
 
             {!isLoading && summary?.totalEntries && (
-              <Text ta={"center"}>
+              <Text ta={"center"} component="span">
                 <Divider
                   color="gray.4"
                   styles={{ label: { fontSize: "12px" } }}

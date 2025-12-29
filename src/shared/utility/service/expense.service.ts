@@ -50,6 +50,16 @@ export const expenseService = createApi({
         data: reqBody,
       }),
     }),
+    deleteExpense: builder.mutation<
+      AxiosResponse<string>,
+      { bookId: number; expenseId: number }
+    >({
+      query: ({ bookId, expenseId }) => ({
+        url: `${API_ROUTES.BOOK}/${bookId}/${API_ROUTES.EXPENSE}/${expenseId}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: [QueryTags.Expense],
+    }),
 
     // addBook: builder.mutation<IBook, IBookReq>({
     //   query: (reqBody) => ({
@@ -93,4 +103,5 @@ export const {
   useGetExpenseByIdQuery,
   usePostExpenseMutation,
   useUpdateExpenseMutation,
+  useDeleteExpenseMutation,
 } = expenseService;

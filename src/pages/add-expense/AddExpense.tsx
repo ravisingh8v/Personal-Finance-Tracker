@@ -31,11 +31,7 @@ import {
 import useGlobalBgColor from "../../shared/utility/hooks/useGlobalBgColor";
 import useHideBottomBar from "../../shared/utility/hooks/useHideBottomBar";
 import useHideHeader from "../../shared/utility/hooks/useHideHeader";
-import type {
-  IExpense,
-  IExpenseReq,
-  IReq,
-} from "../../shared/utility/model/model";
+import type { IExpenseReq, IReq } from "../../shared/utility/model/model";
 import {
   useGetExpenseByIdQuery,
   usePostExpenseMutation,
@@ -59,11 +55,12 @@ const AddExpense = () => {
     useGetCategoriesQuery();
 
   const {
-    data: { data: expense = {} as IExpense } = {},
+    data: { data: expense } = {},
     isLoading: isExpenseLoading,
+    isFetching: isExpenseFetching,
   } = useGetExpenseByIdQuery(
     { bookId: +id, expenseId: +expenseId },
-    { skip: !id || !expenseId }
+    { skip: !id || !expenseId, refetchOnMountOrArgChange: true }
   );
 
   const [updateExpense, { isLoading: isUpdateExpenseLoading }] =
@@ -148,25 +145,27 @@ const AddExpense = () => {
     }
   }, [expense]);
 
+  console.log(form);
   useEffect(() => {
     dispatch(
       setSubHeader({
         title: expenseId ? "Edit Transaction" : "Add Transaction",
         order: 4,
-        history: MENU_LINKS.BOOK + `/${id}` + MENU_LINKS.EXPENSES,
+        history: undefined,
         withDivider: true,
       })
     );
 
     return () => {
       dispatch(setSubHeader(APP_SLICE_INITIAL_VALUES.subHeader));
+      form.reset();
     };
   }, []);
 
   return (
     masterContainer && (
       <>
-        <LoadingOverlay visible={isExpenseLoading} />
+        <LoadingOverlay visible={isExpenseLoading || isExpenseFetching} />
         <Stack>
           <Tabs
             variant="pills"
@@ -179,7 +178,7 @@ const AddExpense = () => {
                 border: "1px solid var(--mantine-color-gray-3)",
               },
             }}
-            defaultValue={form?.values?.transactionTypeId.toString()}
+            value={form?.values?.transactionTypeId.toString()}
             onChange={(value) =>
               form.setFieldValue("transactionTypeId", value ? +value : null)
             }
