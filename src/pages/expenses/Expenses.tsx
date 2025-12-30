@@ -1,13 +1,16 @@
 import {
   Box,
   Button,
+  Card,
   Divider,
   Flex,
   Group,
   Skeleton,
   Stack,
   Text,
+  ThemeIcon,
 } from "@mantine/core";
+import { IconFaceIdError } from "@tabler/icons-react";
 import { Fragment, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { useDispatch } from "react-redux";
@@ -100,6 +103,20 @@ const Expenses = () => {
                     <Skeleton key={idx} h={70} />
                   ))
                 : null}
+              {!isLoading && !expenses?.length ? (
+                <Card radius={"md"}>
+                  <ThemeIcon mx={"auto"} variant="transparent" size={"100px"}>
+                    <IconFaceIdError size={100} stroke={1} />
+                  </ThemeIcon>
+                  <Text ta={"center"} c="dimmed">
+                    Your expense book is empty.
+                  </Text>
+                  <Text mt={"md"} ta={"center"} fz={12} c="dimmed">
+                    Tap the button below to record your first expense and stay
+                    on top of your budget.
+                  </Text>
+                </Card>
+              ) : null}
             </Stack>
           </Stack>
         </Flex>
