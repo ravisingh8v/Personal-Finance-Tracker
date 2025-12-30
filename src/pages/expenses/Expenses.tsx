@@ -77,7 +77,7 @@ const Expenses = () => {
             {!isLoading && summary && <ExpenseSummary summary={summary} />}
             {isLoading && <Skeleton height={120} />}
 
-            {!isLoading && summary?.totalEntries && (
+            {!isLoading && summary?.totalEntries > 0 ? (
               <Text ta={"center"} component="span">
                 <Divider
                   color="gray.4"
@@ -85,7 +85,7 @@ const Expenses = () => {
                   label={"Showing " + summary?.totalEntries + " entires"}
                 ></Divider>
               </Text>
-            )}
+            ) : null}
             <Stack gap={8} flex={1}>
               {!isLoading && expenses && expenses?.length > 0
                 ? expenses.map((expn: IExpenseItem, idx: number) => (
