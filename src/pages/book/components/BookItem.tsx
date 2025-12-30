@@ -52,13 +52,13 @@ const BookItem = ({ book }: { book: IBook }) => {
             >
               <Text
                 fw={500}
-                fz={14}
+                fz={16}
                 lineClamp={2}
                 style={{ wordBreak: "break-word" }}
               >
                 {book.title}
               </Text>
-              <Text fz={10} c={"dimmed"} fw={500}>
+              <Text fz={12} c={"dimmed"} fw={500}>
                 {book.updatedAt ? "Updated" : "Created"}:{" "}
                 {formatUtcToRelativeTime(
                   book.updatedAt ? book.updatedAt : book.createdAt
@@ -76,7 +76,7 @@ const BookItem = ({ book }: { book: IBook }) => {
             <Text
               style={{ flex: 1, textAlign: "end" }}
               truncate
-              fz={"sm"}
+              fz={"md"}
               c={book.totalAmount < 0 ? "red" : "green"}
               fw={500}
             >
@@ -87,7 +87,7 @@ const BookItem = ({ book }: { book: IBook }) => {
                 <ActionIcon
                   variant="transparent"
                   color="brand"
-                  size="sm"
+                  size="md"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <IconDotsVertical stroke={2.5} />
@@ -101,7 +101,7 @@ const BookItem = ({ book }: { book: IBook }) => {
                     <ThemeIcon variant="transparent" size={"sm"}>
                       <IconPencil size={18} />
                     </ThemeIcon>
-                    <Text fz={"sm"}>Edit</Text>
+                    <Text fz={"md"}>Edit</Text>
                   </Group>
                 </Menu.Item>
                 <Menu.Item color="red" onClick={() => setIsConfirmation(true)}>
@@ -109,7 +109,7 @@ const BookItem = ({ book }: { book: IBook }) => {
                     <ThemeIcon variant="transparent" color="red" size={"sm"}>
                       <IconTrash size={18} />
                     </ThemeIcon>
-                    <Text fz={"sm"}>Delete</Text>
+                    <Text fz={"md"}>Delete</Text>
                   </Group>
                 </Menu.Item>
               </Menu.Dropdown>

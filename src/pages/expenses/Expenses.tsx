@@ -106,11 +106,13 @@ const Expenses = () => {
         {createPortal(
           <Box
             pos="sticky"
+            bottom={0}
             bg="white"
             style={{ boxShadow: "0 -2px 10px rgba(0, 0, 0, 0.1)" }}
+            // mb={"-md"}
             mx={"-md"}
-            px="md"
-            py="md"
+            px="lg"
+            py="lg"
           >
             <Group gap={0} justify="space-between">
               <Button
